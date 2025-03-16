@@ -1,0 +1,35 @@
+backend:
+  name: github
+  repo: tentocomunicacoes/tenttocomunicacoes
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "produtos"
+    label: "Produtos"
+    folder: "_produtos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "produto"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Imagem", name: "image", widget: "image"}
+      - {label: "Preço", name: "price", widget: "number", valueType: "float"}
+      - {label: "Categoria", name: "categoria", widget: "relation", collection: "categorias", search_fields: ["title"], value_field: "title", display_fields: ["title"]}
+      - {label: "Em Estoque", name: "em_estoque", widget: "boolean", default: true}
+      - {label: "Descrição", name: "description", widget: "markdown"}
+      - {label: "Destaque", name: "destaque", widget: "boolean", default: false}
+      - {label: "Data", name: "date", widget: "datetime"}
+      
+  - name: "categorias"
+    label: "Categorias"
+    folder: "_categorias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "categoria"}
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Descrição", name: "description", widget: "text"}
+      - {label: "Imagem", name: "image", widget: "image", required: false}
