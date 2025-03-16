@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+<div class="produto">
+  <div class="produto-imagem">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  <div class="produto-info">
+    <h1>{{ page.title }}</h1>
+    <p class="preco">R$ {{ page.price | number_format: 2, ',', '.' }}</p>
+    <p class="estoque">{% if page.em_estoque %}Em estoque{% else %}Fora de estoque{% endif %}</p>
+    <p class="categoria">Categoria: <a href="{{ site.baseurl }}/categorias/{{ page.categoria | slugify }}">{{ page.categoria }}</a></p>
+    <div class="descricao">
+      {{ content }}
+    </div>
+    <button class="adicionar-carrinho" data-id="{{ page.id }}" data-titulo="{{ page.title }}" data-preco="{{ page.price }}">Adicionar ao Carrinho</button>
+  </div>
+</div>
