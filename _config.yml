@@ -1,0 +1,39 @@
+# Configurações básicas do site
+title: Tento Comunicações E-commerce
+description: Loja online com produtos da Tento Comunicações
+baseurl: "/tenttocomunicacoes"
+url: "https://tentocomunicacoes.github.io"
+
+# Configurações de tema
+theme: minima  # Começaremos com um tema simples e depois personalizaremos
+
+# Configurações de coleções para produtos
+collections:
+  produtos:
+    output: true
+    permalink: /produtos/:path/
+  categorias:
+    output: true
+    permalink: /categorias/:path/
+
+# Configurações padrão para arquivos
+defaults:
+  - scope:
+      path: ""
+      type: "produtos"
+    values:
+      layout: produto
+  - scope:
+      path: ""
+      type: "categorias"
+    values:
+      layout: categoria
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
